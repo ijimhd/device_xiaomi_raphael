@@ -89,6 +89,28 @@ static const char *snet_prop_key[] = {
     chmod("/sys/fs/selinux/policy", 0440);
 }
 
+void load_dalvik_properties() {
+    struct sysinfo sys;
+
+    sysinfo(&sys);
+    if (sys.totalram < 6144ull * 1024 * 1024) {
+        // from - phone-xhdpi-6144-dalvik-heap.mk
+        property_override("dalvik.vm.heapstartsize", "16m");
+        property_override("dalvik.vm.heapgrowthlimit", "256m");
+        property_override("dalvik.vm.heapsize", "512m");
+        property_override("dalvik.vm.heapmaxfree", "32m");
+    } else {
+        // 8GB & 12GB RAM
+        property_override("dalvik.vm.heapstartsize", "32m");
+        property_override("dalvik.vm.heapgrowthlimit", "512m");
+        property_override("dalvik.vm.heapsize", "768m");
+        property_override("dalvik.vm.heapmaxfree", "64m");
+    }
+
+    property_override("dalvik.vm.heaptargetutilization", "0.5");
+    property_override("dalvik.vm.heapminfree", "8m");
+}
+
 void load_raphaelglobal() {
     property_override("ro.product.model", "Mi 9T Pro");
     property_override("ro.build.product", "raphael");
@@ -110,29 +132,6 @@ void load_raphael() {
     property_override("ro.build.description", "raphael-user 10 QKQ1.190825.002 V12.0.2.0.QFKCNXM release-keys");
 }
 
-
-void load_dalvikvm_properties()
-{
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-    if (sys.totalram < 7000ull * 1024 * 1024) {
-        // 4/6GB RAM
-        property_override("dalvik.vm.heapstartsize", "16m");
-        property_override("dalvik.vm.heaptargetutilization", "0.5");
-        property_override("dalvik.vm.heapmaxfree", "32m");
-    } else {
-        // 8/12/16GB RAM
-        property_override("dalvik.vm.heapstartsize", "24m");
-        property_override("dalvik.vm.heaptargetutilization", "0.46");
-        property_override("dalvik.vm.heapmaxfree", "48m");
-    }
-
-    property_override("dalvik.vm.heapgrowthlimit", "256m");
-    property_override("dalvik.vm.heapsize", "512m");
-    property_override("dalvik.vm.heapminfree", "8m");
-}
-
 void vendor_load_properties() {
     std::string region = android::base::GetProperty("ro.boot.hwc", "");
 
@@ -146,9 +145,7 @@ void vendor_load_properties() {
         LOG(ERROR) << __func__ << ": unexcepted region!";
     }
 
-
     property_override("ro.oem_unlock_supported", "0");
-    load_dalvikvm_properties();
 
   property_override_multifp(
       "ro.build.fingerprint", "ro.vendor.build.fingerprint",
@@ -158,4 +155,5 @@ void vendor_load_properties() {
      // Workaround SafetyNet
     workaround_snet_properties();
 
+    load_dalvik_properties();
 }
