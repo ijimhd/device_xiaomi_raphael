@@ -75,11 +75,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=RUIM \
     ro.telephony.default_cdma_sub=0 \
     ro.telephony.default_network=22,22 \
+    persist.data.iwlan=1 \
+    persist.data.iwlan.ipsec.ap=1 \
+    persist.sys.cust.lte_config=true \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
     persist.dbg.wfc_avail_ovr=1 \
     persist.radio.NO_STAPA=1 \
     persist.radio.VT_HYBRID_ENABLE=1 \
+    persist.radio.volte.dan_support=true \
     persist.vendor.data.iwlan.enable=true \
     persist.vendor.ims.disableADBLogs=1 \
     persist.vendor.ims.disableIMSLogs=1 \
@@ -91,7 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RCS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.rcs.supported=0
+    persist.rcs.supported=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
