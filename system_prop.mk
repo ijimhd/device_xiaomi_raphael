@@ -79,6 +79,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan=1 \
     persist.data.iwlan.ipsec.ap=1 \
     persist.sys.cust.lte_config=true \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
     persist.dbg.wfc_avail_ovr=1 \
