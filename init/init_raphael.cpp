@@ -96,5 +96,6 @@ void vendor_load_properties() {
     }
 
 
+    property_override("ro.oem_unlock_supported", "0");
     load_dalvikvm_properties();
 }
