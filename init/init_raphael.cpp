@@ -95,5 +95,5 @@ void vendor_load_properties() {
 
     property_override("ro.oem_unlock_supported", "0");
     load_dalvikvm_properties();
-    property_override("ro.build.fingerprint", "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys");
+    property_override("ro.build.fingerprint", "google/coral/coral:11/RP1A.201005.004/6782484:user/release-keys");
 }
