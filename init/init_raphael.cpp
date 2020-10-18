@@ -155,7 +155,7 @@ void vendor_load_properties() {
   property_override_multifp(
       "ro.build.fingerprint", "ro.vendor.build.fingerprint",
       "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
-      "google/coral/coral:11/RP1A.201005.004/6782484:user/release-keys");
+      "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 
      // Workaround SafetyNet
     workaround_snet_properties();
