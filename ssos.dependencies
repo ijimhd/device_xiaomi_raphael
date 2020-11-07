@@ -2,6 +2,6 @@
   {
     "repository"  : "vendor_xiaomi",
     "target_path" : "vendor/xiaomi",
-    "branch"      : "android_10"
+    "branch"      : "android_11"
   }
 ]
