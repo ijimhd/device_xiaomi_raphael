@@ -276,7 +276,7 @@
     <integer name="config_screenBrightnessForVrSettingDefault">7</integer>
     <integer name="config_screenBrightnessForVrSettingMinimum">6</integer>
     <integer name="config_screenBrightnessForVrSettingMaximum">7</integer>
-    
+
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -387,10 +387,10 @@
 
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
-    
+
     <!-- Whether the device supports Smart Pixels -->
-    <bool name="config_enableSmartPixels">true</bool> 
-    
+    <bool name="config_enableSmartPixels">true</bool>
+
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
 
@@ -412,7 +412,7 @@
 
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
-    
+
     <!-- Smart Charging -->
     <bool name="config_deviceSupportSmartCharging">true</bool>
     <bool name="config_smartChargingAvailable">true</bool>
@@ -421,7 +421,7 @@
     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
     <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
     <string name="config_SmartChargingResumeValue" translatable="false">0</string>
-    
+
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
          For this time after the screen turns on, the Power Manager
          will not debounce light sensor readings -->
@@ -497,5 +497,8 @@
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">7</integer>
     <integer name="config_maxVisibleNotificationIconsOnLock">8</integer>
+
+    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
+    <bool name="config_inDisplayFingerprintFlickersGoingToSleep">true</bool>
 </resources>
 
