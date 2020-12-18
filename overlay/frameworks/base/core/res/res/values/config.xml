@@ -69,6 +69,9 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
+    <!-- Whether Hearing Aid profile is supported -->
+    <bool name="config_hearing_aid_profile_supported">true</bool>
+
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
          The default is false. -->
